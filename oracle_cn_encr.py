@@ -8,7 +8,8 @@ Created on Wed May  4 10:40:05 2022
 # change in case different path to Oracle client
 import os
 os.chdir('C:/Oracle/instantclient_18_3')
-import cx_Oracle
+# import cx_Oracle
+import oracledb
 from cryptography.fernet import Fernet
 
 pth_f = 'c:/dane/Python/Crypto/'
@@ -40,6 +41,6 @@ def oracle_connect_encripted():
         # connect to Sirval Oracle server
         ORACLE_CONNECT = decrypted_data
         global orcl
-        orcl = cx_Oracle.connect(ORACLE_CONNECT)
+        orcl = oracledb.connect(ORACLE_CONNECT)
         print("Connected to Oracle: " + orcl.version)
         return orcl
